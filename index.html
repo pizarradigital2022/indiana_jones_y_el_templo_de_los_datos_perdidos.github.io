@@ -87,6 +87,30 @@ font-size:14px;
 display:none;
 }
 
+.instrucciones {
+  font-size: 15px;
+  color: #3b2a17; /* marrón oscuro */
+  background: linear-gradient(135deg, #f5e2b8, #e8c98f); /* efecto pergamino */
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 2px solid #6b4e2e;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 20px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  text-align: left;
+}
+
+/* títulos dentro */
+.instrucciones strong {
+  color: #7a3f00;
+}
+
+/* iconos o emojis */
+.instrucciones br {
+  margin-bottom: 8px;
+}
+
 </style>
 </head>
 
@@ -118,6 +142,9 @@ Antes de desaparecer dejó una nota:
 
 <img src="./resources/IMAGEN_INTRO.png" width="600">
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ekD0PzSUVDI?si=_F0uOTc_KaHE3Oc9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PzEwtotimy0?si=FMmvPdBYY1jkYmtw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EVjvIL2joxQ?si=2UMoP-XJDEee2-rH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <h2>Selecciona duración</h2>
 
 <button onclick="startGame(60)">Modo 60 min</button>
@@ -136,8 +163,21 @@ Acceso profesor:
 
 <div id="test1" class="screen">
 
-<h1>📜 Cámara del equilibrio</h1>
+<h1>📜 Cámara del equilibrio 📜</h1>
 
+<p>
+  Al descender por la primera galería, encontráis una sala circular cubierta de símbolos antiguos. En el centro, una balanza de piedra permanece inmóvil desde hace siglos.
+
+</p><p>
+En las paredes aparecen registros de antiguas expediciones: los sacerdotes del templo anotaban cuidadosamente el número de reliquias encontradas en cada incursión.
+
+</p><p>
+Una inscripción advierte:
+
+</p><p>
+<strong>“Solo quien encuentre el valor central de los hallazgos restaurará el equilibrio del templo.”</strong>
+
+</p>
 <p>
 Un mural del templo muestra las reliquias encontradas en expediciones arqueológicas.
 </p>
@@ -148,9 +188,12 @@ Datos:
 4, 5, 6, 6, 7, 7, 8, 9, 9, 10
 
 </div>
+<p>
+Si el equilibrio es correcto, la balanza se moverá… y la primera puerta se abrirá.
+</p>
 
 <p>
-Calcula la <b>media aritmética</b>.
+Calculad la <b>media aritmética</b>.
 </p>
 
 <img src="./resources/IMAGEN1.png" width="600">
@@ -169,12 +212,21 @@ Suma todos los valores y divide entre el número de datos.
 
 <div id="test2" class="screen">
 
-<h1>⚖️ Sala de la dispersión</h1>
+<h1>⚖️ Sala de la dispersión ⚖️</h1>
 
 <p>
-Los sacerdotes del templo medían la variabilidad de los hallazgos.
-</p>
 
+
+  Tras cruzar la primera puerta, accedéis a una cámara llena de columnas desiguales. Algunas están muy juntas, otras separadas. El suelo está marcado con distancias y medidas.
+</p><p>
+Parece que los antiguos sacerdotes no solo buscaban el equilibrio, sino también entender cuánto variaban sus hallazgos. Es decir, <strong>los sacerdotes del templo medían la variabilidad de los hallazgos.</strong>
+</p><p>
+Una advertencia resuena en la sala:
+</p><p>
+<strong>“El conocimiento no está en el valor medio, sino en cuánto se alejan los datos de él.”</strong>
+</p><p>
+Calculad la desviación típica para medir la dispersión. Solo así podréis avanzar sin activar las trampas ocultas entre las columnas.
+</p>
 <p>
 Calcula la <b>desviación típica</b> de los mismos datos.
 </p>
@@ -199,14 +251,22 @@ Usa la fórmula de la desviación típica poblacional.
 
 <div id="test3" class="screen">
 
-<h1>⚖️ La balanza sagrada</h1>
+<h1>⚖️ La balanza sagrada ⚖️</h1>
 
 <p>
-Los sacerdotes analizaban si la distribución estaba inclinada hacia un lado.
-</p>
-
-<p>
-Calcula el <b>coeficiente de asimetría</b>.
+La siguiente estancia contiene una enorme balanza dorada, inclinada ligeramente hacia un lado.
+</p><p>
+En las paredes, figuras humanas transportan reliquias: algunas cargan más peso que otras. Parece que la distribución no es completamente equilibrada.
+</p><p>
+Una inscripción en jeroglíficos dice:
+</p><p>
+<strong>“Observa hacia dónde se inclina la historia de los datos.”</strong>
+</p><p>
+Debéis determinar si los datos están sesgados hacia la derecha o hacia la izquierda.
+</p><p>
+Solo comprendiendo la <strong>asimetría</strong> de los hallazgos podréis ajustar la balanza y desbloquear el mecanismo oculto.</p>
+</p><p>
+Calculad el <b>coeficiente de asimetría</b>.
 </p>
 
 <img src="./resources/IMAGEN3.png" width="600">
@@ -225,12 +285,21 @@ Comprueba si la media es mayor que la mediana.
 
 <div id="test4" class="screen">
 
-<h1>🏺 El sello del sacerdote</h1>
+<h1>🏺 El sello del sacerdote 🏺</h1>
 
 <p>
-El templo clasifica las distribuciones según su forma.
+Llegáis a una sala más oscura. En el centro hay un sello de piedra con una superficie curva. A su alrededor, grabados muestran montañas puntiagudas y llanuras extendidas.
+</p><p>
+Los antiguos guardianes del templo clasificaban las distribuciones según su forma: algunas eran concentradas y afiladas, otras más planas y dispersas.
+</p><p>
+Una voz parece susurrar desde las paredes:
+</p><p>
+<strong>“No todo es equilibrio… la forma también revela el secreto.”</strong>
+</p><p>
+Calculad la curtosis para identificar la forma de la distribución.
+</p><p>
+Solo reconociendo si es plana o puntiaguda podréis activar el sello y abrir el acceso al corazón del templo.</p>
 </p>
-
 <p>
 Calcula el <b>coeficiente de curtosis</b>.
 </p>
@@ -240,7 +309,7 @@ Calcula el <b>coeficiente de curtosis</b>.
 <button onclick="showHint('h4')">Pista</button>
 
 <div id="h4" class="hint">
-Determina si la distribución es platicúrtica o leptocúrtica.
+Determinad si la distribución es platicúrtica o leptocúrtica.
 </div>
 
 <button onclick="next('test5')">Continuar</button>
@@ -251,12 +320,30 @@ Determina si la distribución es platicúrtica o leptocúrtica.
 
 <div id="test5" class="screen">
 
-<h1>📈 El diario perdido de Indy</h1>
+<h1>📈 El diario perdido de Indy 📈</h1>
+  <p>Finalmente, encontráis una sala secreta. Sobre un pedestal descansa el diario de
+Indiana Jones.</p>
 
 <p>
 En el diario de 
 :contentReference[oaicite:2]{index=2} 
 aparece la relación entre reliquias y valor del tesoro.
+</p>
+<p>En sus páginas aparecen anotaciones detalladas: una relación entre el número de reliquias encontradas y el valor económico del tesoro recuperado.
+</p>
+<p>Parece que Indy estaba intentando predecir el valor de futuros hallazgos… pero no terminó su trabajo.
+</p>
+<p>
+La última nota dice:
+</p>
+<p>
+<strong>“Si encuentras el patrón, podrás anticiparte al destino.”</strong>
+</p>
+<p>
+Debéis construir la recta de regresión y predecir el valor para una nueva expedición.
+</p>
+<p>
+Solo así podréis completar el código y escapar antes de que el templo se selle para siempre.
 </p>
 <img src="./resources/IMAGEN5.png" width="600">
 
@@ -296,10 +383,58 @@ Primero calcula pendiente y ordenada en el origen.
 
 <div id="lock" class="screen">
 
-<h1>🔐 Puerta del templo</h1>
+<h1>🔐 Puerta del templo 🔐</h1>
 
 <p>
 Introduce los 5 números obtenidos.
+</p>
+  <p class="instrucciones">
+
+Estas son las <strong>instrucciones para construir el código final</strong> del templo:
+
+<br><br>
+
+🏺 <strong>Prueba 1 — Media</strong>:  
+Calcula la media de los datos.  
+Redondea al entero más cercano.  
+👉 Obtendrás el <strong>primer dígito</strong>.
+
+<br><br>
+
+⚖️ <strong>Prueba 2 — Desviación típica</strong>:  
+Calcula la desviación típica.  
+Toma la <strong>primera cifra decimal</strong>.  
+👉 Ese será el <strong>segundo dígito</strong>.
+
+<br><br>
+
+⚖️ <strong>Prueba 3 — Asimetría</strong>:  
+Determina si la distribución está sesgada.  
+- Si es <strong>positiva</strong> → 3  
+- Si es <strong>negativa</strong> → 7  
+- Si es <strong>nula</strong> → 0  
+👉 Obtendrás el <strong>tercer dígito</strong>.
+
+<br><br>
+
+🏺 <strong>Prueba 4 — Curtosis</strong>:  
+Analiza la forma de la distribución.  
+- <strong>Platicúrtica</strong> → 2  
+- <strong>Mesocúrtica</strong> → 5  
+- <strong>Leptocúrtica</strong> → 8  
+👉 Ese será el <strong>cuarto dígito</strong>.
+
+<br><br>
+
+📈 <strong>Prueba 5 — Regresión</strong>:  
+Calcula la recta de regresión y estima el valor para x = 11.  
+Toma la <strong>cifra de las unidades</strong> del resultado.  
+👉 Obtendrás el <strong>quinto dígito</strong>.
+
+<br><br>
+
+<strong>🔑 Introduce los 5 dígitos seguidos, sin espacios.</strong>
+
 </p>
 
 <img src="./resources/IMAGEN_CANDADO.png" width="600">
@@ -318,7 +453,7 @@ Introduce los 5 números obtenidos.
 
 <div id="success" class="screen">
 
-<h1>🏆 ¡El templo se abre!</h1>
+<h1>🏆 ¡El templo se abre! 🏆</h1>
 
 <p>
 Habéis descifrado el conocimiento estadístico del templo.
@@ -338,7 +473,7 @@ continúa.
 
 <div id="fail" class="screen">
 
-<h1>💀 El templo se sella</h1>
+<h1>💀 El templo se sella 💀</h1>
 
 <p>
 El tiempo se ha agotado.
@@ -362,7 +497,7 @@ Media → 7
 Desviación → 8  
 Asimetría → 3  
 Curtosis → 2  
-Regresión → 2  
+Regresión → 9  
 
 <br>
 
