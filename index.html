@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Breakout: El Templo de los Datos Perdidos</title>
+
+<link rel="icon" type="image/x-icon" href="./resources/favicon.ico">
+
+<style>
+
+body{
+margin:0;
+font-family:Georgia, serif;
+background: radial-gradient(circle,#c2a56c,#6b4e2e);
+color:#2b1a0a;
+text-align:center;
+}
+
+/* efecto pergamino */
+.screen{
+display:none;
+padding:20px;
+background:rgba(255,240,200,0.9);
+margin:20px;
+border-radius:10px;
+box-shadow:0 0 25px rgba(0,0,0,0.5);
+}
+
+.active{display:block;}
+
+.timer{
+position:fixed;
+top:10px;
+right:20px;
+font-size:22px;
+background:#3b2a17;
+padding:10px;
+border-radius:10px;
+color:#ffd27a;
+}
+
+button{
+background:#6b4e2e;
+border:none;
+padding:12px 20px;
+color:white;
+font-size:16px;
+cursor:pointer;
+border-radius:8px;
+margin:10px;
+}
+
+button:hover{background:#8c6b3e;}
+
+.math{
+font-size:20px;
+margin:20px;
+background:#f5e2b8;
+padding:15px;
+border-radius:10px;
+}
+
+.hint{
+display:none;
+margin:10px;
+color:#7a3f00;
+font-weight:bold;
+}
+
+.candado{
+width:350px;
+height:60px;
+font-size:26px;
+text-align:center;
+border-radius:10px;
+border:3px solid #6b4e2e;
+}
+
+.teacher-panel{
+position:fixed;
+bottom:0;
+left:0;
+background:#2b1a0a;
+color:#ffd27a;
+padding:10px;
+font-size:14px;
+display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="timer" id="timer">Tiempo: --:--</div>
+
+<audio id="unlockSound" src="./resources/SONIDO_DESBLOQUEO.mp3"></audio>
+
+<!-- INTRO -->
+
+<div id="intro" class="screen active">
+
+<h1>🏺 El Templo de los Datos Perdidos 🏺</h1>
+
+<p>
+El famoso arqueólogo 
+:contentReference[oaicite:1]{index=1} 
+descubrió un antiguo templo donde una civilización protegía su conocimiento usando **estadística**.
+</p>
+
+<p>
+Antes de desaparecer dejó una nota:
+</p>
+
+<p><b>
+“Solo quien interprete correctamente los datos podrá abrir el templo.”
+</b></p>
+
+<img src="./resources/IMAGEN_INTRO.png" width="600">
+
+<h2>Selecciona duración</h2>
+
+<button onclick="startGame(60)">Modo 60 min</button>
+<button onclick="startGame(90)">Modo 90 min</button>
+
+<hr>
+
+<p>
+Acceso profesor:  
+<input type="password" id="accesoProfe">
+</p>
+
+</div>
+
+<!-- PRUEBA 1 -->
+
+<div id="test1" class="screen">
+
+<h1>📜 Cámara del equilibrio</h1>
+
+<p>
+Un mural del templo muestra las reliquias encontradas en expediciones arqueológicas.
+</p>
+
+<div class="math">
+
+Datos:  
+4, 5, 6, 6, 7, 7, 8, 9, 9, 10
+
+</div>
+
+<p>
+Calcula la <b>media aritmética</b>.
+</p>
+
+<img src="./resources/IMAGEN1.png" width="600">
+
+<button onclick="showHint('h1')">Pista</button>
+
+<div id="h1" class="hint">
+Suma todos los valores y divide entre el número de datos.
+</div>
+
+<button onclick="next('test2')">Continuar</button>
+
+</div>
+
+<!-- PRUEBA 2 -->
+
+<div id="test2" class="screen">
+
+<h1>⚖️ Sala de la dispersión</h1>
+
+<p>
+Los sacerdotes del templo medían la variabilidad de los hallazgos.
+</p>
+
+<p>
+Calcula la <b>desviación típica</b> de los mismos datos.
+</p>
+
+<div class="math">
+4,5,6,6,7,7,8,9,9,10
+</div>
+
+<img src="./resources/IMAGEN2.png" width="600">
+
+<button onclick="showHint('h2')">Pista</button>
+
+<div id="h2" class="hint">
+Usa la fórmula de la desviación típica poblacional.
+</div>
+
+<button onclick="next('test3')">Continuar</button>
+
+</div>
+
+<!-- PRUEBA 3 -->
+
+<div id="test3" class="screen">
+
+<h1>⚖️ La balanza sagrada</h1>
+
+<p>
+Los sacerdotes analizaban si la distribución estaba inclinada hacia un lado.
+</p>
+
+<p>
+Calcula el <b>coeficiente de asimetría</b>.
+</p>
+
+<img src="./resources/IMAGEN3.png" width="600">
+
+<button onclick="showHint('h3')">Pista</button>
+
+<div id="h3" class="hint">
+Comprueba si la media es mayor que la mediana.
+</div>
+
+<button onclick="next('test4')">Continuar</button>
+
+</div>
+
+<!-- PRUEBA 4 -->
+
+<div id="test4" class="screen">
+
+<h1>🏺 El sello del sacerdote</h1>
+
+<p>
+El templo clasifica las distribuciones según su forma.
+</p>
+
+<p>
+Calcula el <b>coeficiente de curtosis</b>.
+</p>
+
+<img src="./resources/IMAGEN4.png" width="600">
+
+<button onclick="showHint('h4')">Pista</button>
+
+<div id="h4" class="hint">
+Determina si la distribución es platicúrtica o leptocúrtica.
+</div>
+
+<button onclick="next('test5')">Continuar</button>
+
+</div>
+
+<!-- PRUEBA 5 -->
+
+<div id="test5" class="screen">
+
+<h1>📈 El diario perdido de Indy</h1>
+
+<p>
+En el diario de 
+:contentReference[oaicite:2]{index=2} 
+aparece la relación entre reliquias y valor del tesoro.
+</p>
+
+<div class="math">
+
+x = reliquias  
+y = valor
+
+(4,9)  
+(5,11)  
+(6,12)  
+(6,13)  
+(7,14)  
+(7,15)  
+(8,17)  
+(9,18)  
+(9,19)  
+(10,21)
+
+</div>
+
+<p>
+Calcula la <b>recta de regresión</b> y estima el valor para <b>x = 11</b>.
+</p>
+
+<button onclick="showHint('h5')">Pista</button>
+
+<div id="h5" class="hint">
+Primero calcula pendiente y ordenada en el origen.
+</div>
+
+<button onclick="next('lock')">Ir al candado final</button>
+
+</div>
+
+<!-- CANDADO -->
+
+<div id="lock" class="screen">
+
+<h1>🔐 Puerta del templo</h1>
+
+<p>
+Introduce los 5 números obtenidos.
+</p>
+
+<img src="./resources/IMAGEN_CANDADO.png" width="600">
+
+<br>
+
+<input id="password" class="candado" placeholder="-----">
+
+<br>
+
+<button onclick="checkPassword()">Abrir puerta</button>
+
+</div>
+
+<!-- ÉXITO -->
+
+<div id="success" class="screen">
+
+<h1>🏆 ¡El templo se abre!</h1>
+
+<p>
+Habéis descifrado el conocimiento estadístico del templo.
+</p>
+
+<p>
+El legado de 
+:contentReference[oaicite:3]{index=3} 
+continúa.
+</p>
+
+<img src="./resources/IMAGEN_EXITO.png" width="600">
+
+</div>
+
+<!-- FRACASO -->
+
+<div id="fail" class="screen">
+
+<h1>💀 El templo se sella</h1>
+
+<p>
+El tiempo se ha agotado.
+</p>
+
+<img src="./resources/IMAGEN_FRACASO.png" width="600">
+
+<button onclick="restart()">Reintentar</button>
+
+</div>
+
+<!-- PANEL PROFESOR -->
+
+<div id="panelProfesor" class="teacher-panel">
+
+<b>Panel profesor</b>
+
+<br>
+
+Media → 7  
+Desviación → 8  
+Asimetría → 3  
+Curtosis → 2  
+Regresión → 2  
+
+<br>
+
+<b>Código: 78329</b>
+
+</div>
+
+<script>
+
+let timeLeft;
+let timerInterval;
+let gameFinished=false;
+
+function startGame(minutes){
+timeLeft=minutes*60;
+gameFinished=false;
+show('test1');
+startTimer();
+}
+
+function startTimer(){
+
+timerInterval=setInterval(()=>{
+
+if(gameFinished) return;
+
+timeLeft--;
+
+let m=Math.floor(timeLeft/60);
+let s=timeLeft%60;
+
+document.getElementById("timer").innerText=
+`Tiempo: ${m}:${s.toString().padStart(2,'0')}`;
+
+if(timeLeft<=0){
+show('fail');
+clearInterval(timerInterval);
+}
+
+},1000);
+}
+
+function show(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function next(id){show(id);}
+
+function checkPassword(){
+
+let pass=document.getElementById("password").value.trim();
+
+if(pass==="78329"){
+gameFinished=true;
+document.getElementById("unlockSound").play();
+show('success');
+}else{
+show('fail');
+}
+
+}
+
+function restart(){
+clearInterval(timerInterval);
+show('intro');
+document.getElementById("timer").innerText="Tiempo: --:--";
+}
+
+function showHint(id){
+document.getElementById(id).style.display="block";
+}
+
+document.getElementById("accesoProfe").addEventListener("input",function(){
+
+if(this.value==="PROFE"){
+document.getElementById("panelProfesor").style.display="block";
+}else{
+document.getElementById("panelProfesor").style.display="none";
+}
+
+});
+
+</script>
+
+</body>
+</html>
